@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Api from '../../config/api';
 
 import './style.css';
@@ -54,7 +55,7 @@ export default class Main extends Component {
                     <article key={products._id}>
                         <strong>{products.title}</strong>
                         <p>{products.description}</p>
-                        <a href='#'>Acessar</a>
+                        <Link to={`/product/${products._id}`}>Acessar</Link>
                     </article>
                 ))}
                 <div className='actions'>
@@ -62,6 +63,6 @@ export default class Main extends Component {
                     <button disabled={page === productInfo.pages} onClick={this.nextPage}>Próximo</button>                    
                 </div>
             </div>
-        )
+        );
     }
 }
